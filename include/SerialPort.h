@@ -1,3 +1,11 @@
+/*
+* Author: Manash Kumar Mandal
+* Modified Library introduced in Arduino Playground which does not work
+* This works perfectly
+* LICENSE: MIT
+*/
+
+
 #ifndef SERIALPORT_H
 #define SERIALPORT_H
 
