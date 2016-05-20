@@ -1,0 +1,13 @@
+# depslib dependency file v1.0
+1463769892 source:c:\users\manash\documents\serialport\main.cpp
+	<iostream>
+	"SerialPort.h"
+
+1463769369 c:\users\manash\documents\serialport\include\serialport.h
+	<windows.h>
+	<stdio.h>
+	<stdlib.h>
+
+1463770285 source:c:\users\manash\documents\serialport\src\serialport.cpp
+	"SerialPort.h"
+
