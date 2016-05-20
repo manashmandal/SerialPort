@@ -1,3 +1,10 @@
+/*
+* Author: Manash Kumar Mandal
+* Modified Library introduced in Arduino Playground which does not work
+* This works perfectly
+* LICENSE: MIT
+*/
+
 #include "SerialPort.h"
 
 SerialPort::SerialPort(char *portName)
