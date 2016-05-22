@@ -8,7 +8,7 @@
 
 
 ## Documentation
-[Here is a blog post about the library](https://medium.com/p/d08710186498/)
+[Here is a blog post about the library](https://medium.com/@ManashMandal/serial-communication-with-an-arduino-using-c-on-windows-d08710186498#.f94efw74b)
 
 ### Initialization
 ```cpp
