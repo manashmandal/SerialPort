@@ -8,6 +8,7 @@
 
 
 ## Documentation
+[Here is a blog post about the library](https://medium.com/p/d08710186498/)
 
 ### Initialization
 ```cpp
