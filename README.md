@@ -6,6 +6,7 @@
 * Windows Supported
 * Include and Run Type Library
 * supports softwareserial
+* supports serial event
 
 ## Documentation
 [Here is a blog post about the library](https://medium.com/@ManashMandal/serial-communication-with-an-arduino-using-c-on-windows-d08710186498#.f94efw74b)
