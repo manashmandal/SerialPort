@@ -75,9 +75,9 @@ int SerialPort::readSerialPort(char *buffer, unsigned int buf_size)
         else toRead = this->status.cbInQue;
     }
 
-    memset(buffer, 0, sizeof(*buffer));
-    
-    if (ReadFile(this->handler, buffer, sizeof(buffer), &bytesRead, NULL)) return bytesRead;
+    memset(buffer, 0, buf_size);
+
+    if (ReadFile(this->handler, buffer, toRead, &bytesRead, NULL)) return bytesRead;
 
     return 0;
 }
