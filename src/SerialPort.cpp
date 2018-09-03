@@ -95,5 +95,8 @@ bool SerialPort::writeSerialPort(char *buffer, unsigned int buf_size)
 
 bool SerialPort::isConnected()
 {
+    if (!ClearCommError(this->handler, &this->errors, &this->status))
+		this->connected = false;
+        
     return this->connected;
 }
