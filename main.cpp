@@ -40,18 +40,32 @@ void exampleWriteData(unsigned int delayTime)
     Sleep(delayTime);
 }
 
-int main()
+void autoConnect(void)
 {
-    arduino = new SerialPort(portName);
+    //wait connection
+	while (!arduino->isConnected()) {
+		Sleep(100);
+		arduino = new SerialPort(portName);
+	}
 
     //Checking if arduino is connected or not
-    if (arduino->isConnected()){
-        std::cout << "Connection established at port " << portName << endl;
-    }
+	if (arduino->isConnected()) {
+		std::cout << "Connection established at port " << portName << endl;
+	}
 
-    #ifdef SEND
+	#ifdef SEND
         while(arduino->isConnected()) exampleWriteData(BLINKING_DELAY);
     #else // SEND
         while(arduino->isConnected()) exampleReceiveData();
     #endif // SEND
+
+    //if the serial connection is lost
+	autoConnect();
+}
+
+int main()
+{
+    arduino = new SerialPort(portName);
+
+    autoConnect();   
 }
