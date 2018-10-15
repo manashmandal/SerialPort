@@ -45,15 +45,18 @@ void autoConnect(void)
     //better than recusion
     //avoid stack overflows
     while(1) {
-        //wait connection
+        // ui - searching
+        std::cout << "Searching in progress";
+        // wait connection
         while (!arduino->isConnected()) {
             Sleep(100);
+            std::cout << ".";
             arduino = new SerialPort(portName);
         }
 
         //Checking if arduino is connected or not
         if (arduino->isConnected()) {
-            std::cout << "Connection established at port " << portName << endl;
+            std::cout  << std::endl << "Connection established at port " << portName << std::endl;
         }
 
         #ifdef SEND
