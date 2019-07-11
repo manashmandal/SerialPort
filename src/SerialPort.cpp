@@ -100,3 +100,8 @@ bool SerialPort::isConnected()
         
     return this->connected;
 }
+// Close Connection
+void SerialPort::closeSerial()
+{
+    CloseHandle(this->handler);
+}
