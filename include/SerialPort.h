@@ -24,7 +24,7 @@ private:
     COMSTAT status;
     DWORD errors;
 public:
-    SerialPort(char *portName);
+    SerialPort(char *portName, DWORD baudRate = CBR_9600);
     ~SerialPort();
 
     int readSerialPort(char *buffer, unsigned int buf_size);
