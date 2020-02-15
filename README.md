@@ -17,7 +17,7 @@
 #include "SerialPort.h"
 #include <iostream>
 
-char* portName = "\\\\.\\COM20";
+const char *portName = "\\\\.\\COM20";
 
 //Declare a global object
 SerialPort *arduino;
@@ -36,7 +36,7 @@ int main(void)
 #include "SerialPort.h"
 #include <iostream>
 
-char* portName = "\\\\.\\COM20";
+const char *portName = "\\\\.\\COM20";
 
 //Declare a global object
 SerialPort *arduino;
@@ -62,7 +62,7 @@ int main(void)
 #include "SerialPort.h"
 #include <iostream>
 
-char* portName = "\\\\.\\COM20";
+const char *portName = "\\\\.\\COM20";
 
 //Declare a global object
 SerialPort *arduino;
