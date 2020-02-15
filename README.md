@@ -67,7 +67,6 @@ const char *portName = "\\\\.\\COM20";
 //Declare a global object
 SerialPort *arduino;
 
-//Here '\n' is a delimiter 
 char receivedString[DATA_LENGTH];
 
 int main(void)
