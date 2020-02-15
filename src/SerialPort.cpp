@@ -68,6 +68,8 @@ SerialPort::~SerialPort()
     }
 }
 
+// Reading bytes from serial port to buffer;
+// returns read bytes count, or if error occurs, returns 0
 int SerialPort::readSerialPort(char *buffer, unsigned int buf_size)
 {
     DWORD bytesRead{};
@@ -97,6 +99,8 @@ int SerialPort::readSerialPort(char *buffer, unsigned int buf_size)
     return 0;
 }
 
+// Sending provided buffer to serial port;
+// returns true if succeed, false if not
 bool SerialPort::writeSerialPort(char *buffer, unsigned int buf_size)
 {
     DWORD bytesSend;
@@ -110,6 +114,7 @@ bool SerialPort::writeSerialPort(char *buffer, unsigned int buf_size)
     return true;
 }
 
+// Checking if serial port is connected
 bool SerialPort::isConnected()
 {
     if (!ClearCommError(this->handler, &this->errors, &this->status))
