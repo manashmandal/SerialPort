@@ -22,11 +22,11 @@ SerialPort::SerialPort(const char *portName)
     {
         if (GetLastError() == ERROR_FILE_NOT_FOUND)
         {
-            printf("ERROR: Handle was not attached. Reason: %s not available\n", portName);
+            std::cerr << "ERROR: Handle was not attached.Reason : " << portName << " not available\n";
         }
         else
         {
-            printf("ERROR!!!");
+            std::cerr << "ERROR!!!\n";
         }
     }
     else
@@ -35,7 +35,7 @@ SerialPort::SerialPort(const char *portName)
 
         if (!GetCommState(this->handler, &dcbSerialParameters))
         {
-            printf("failed to get current serial parameters");
+            std::cerr << "Failed to get current serial parameters\n";
         }
         else
         {
@@ -47,7 +47,7 @@ SerialPort::SerialPort(const char *portName)
 
             if (!SetCommState(handler, &dcbSerialParameters))
             {
-                printf("ALERT: could not set Serial port parameters\n");
+                std::cout << "ALERT: could not set serial port parameters\n";
             }
             else
             {
@@ -70,7 +70,7 @@ SerialPort::~SerialPort()
 
 int SerialPort::readSerialPort(char *buffer, unsigned int buf_size)
 {
-    DWORD bytesRead;
+    DWORD bytesRead{};
     unsigned int toRead = 0;
 
     ClearCommError(this->handler, &this->errors, &this->status);

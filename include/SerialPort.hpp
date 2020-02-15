@@ -12,8 +12,6 @@
 
 #include <windows.h>
 #include <iostream>
-#include <stdio.h>
-#include <stdlib.h>
 
 class SerialPort
 {
