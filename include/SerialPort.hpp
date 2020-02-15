@@ -5,14 +5,13 @@
 * LICENSE: MIT
 */
 
-
-#ifndef SERIALPORT_H
-#define SERIALPORT_H
+#pragma once
 
 #define ARDUINO_WAIT_TIME 2000
 #define MAX_DATA_LENGTH 255
 
 #include <windows.h>
+#include <iostream>
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -24,7 +23,7 @@ private:
     COMSTAT status;
     DWORD errors;
 public:
-    SerialPort(char *portName);
+    SerialPort(const char *portName);
     ~SerialPort();
 
     int readSerialPort(char *buffer, unsigned int buf_size);
@@ -32,5 +31,3 @@ public:
     bool isConnected();
     void closeSerial();
 };
-
-#endif // SERIALPORT_H
