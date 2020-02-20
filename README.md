@@ -2,19 +2,19 @@
 
 ## C++ Library for Serial Communication with following criteria
 
-* Plain C++ Compatible
-* Windows Supported
-* Include and Run Type Library
-* supports softwareserial
-* supports serial event
-* fixed minor bugs
+*  Plain C++ Compatible
+*  Windows Supported
+*  Include and Run Type Library
+*  supports softwareserial
+*  supports serial event
+*  fixed minor bugs
 
 ## Documentation
 [Here is a blog post about the library](https://medium.com/@ManashMandal/serial-communication-with-an-arduino-using-c-on-windows-d08710186498#.f94efw74b)
 
 ### Initialization
 ```cpp
-#include "SerialPort.h"
+#include "SerialPort.hpp"
 #include <iostream>
 
 const char *portName = "\\\\.\\COM20";
@@ -25,7 +25,7 @@ SerialPort *arduino;
 int main(void)
 {
   arduino = new SerialPort(portName);
-  std::cout << "is connected: " << arduino->isConnected() << std::endl;
+  std::cout << "Is connected: " << arduino->isConnected() << std::endl;
 }
 ```
 
@@ -33,7 +33,7 @@ int main(void)
 ```cpp
 #define DATA_LENGTH 255
 
-#include "SerialPort.h"
+#include "SerialPort.hpp"
 #include <iostream>
 
 const char *portName = "\\\\.\\COM20";
@@ -42,7 +42,7 @@ const char *portName = "\\\\.\\COM20";
 SerialPort *arduino;
 
 //Here '\n' is a delimiter 
-char *sendString = "Hello World\n"; 
+const char *sendString = "Hello World\n"; 
 
 int main(void)
 {
@@ -50,7 +50,7 @@ int main(void)
   if (arduino->isConnected()){
     bool hasWritten = arduino->writeSerialPort(sendString, DATA_LENGTH);
     if (hasWritten) std::cout << "Data Written Successfully" << std::endl;
-    else std::cout << "Data was not written" << std::endl;
+    else std::cerr << "Data was not written" << std::endl;
   }
 }
 ```
@@ -59,7 +59,7 @@ int main(void)
 ```cpp
 #define DATA_LENGTH 255
 
-#include "SerialPort.h"
+#include "SerialPort.hpp"
 #include <iostream>
 
 const char *portName = "\\\\.\\COM20";
@@ -74,8 +74,8 @@ int main(void)
   arduino = new SerialPort(portName);
   if (arduino->isConnected()){
     int hasRead = arduino->readSerialPort(receivedString, DATA_LENGTH);
-    if (hasRead) printf("%s", receivedString);
-    else printf("Error occured reading data");
+    if (hasRead) std::cout <<  receivedString << "\n";
+    else std::cerr << "Error occured reading data" << "\n";
   }
 }
 ```

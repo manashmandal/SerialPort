@@ -70,7 +70,7 @@ SerialPort::~SerialPort()
 
 // Reading bytes from serial port to buffer;
 // returns read bytes count, or if error occurs, returns 0
-int SerialPort::readSerialPort(char *buffer, unsigned int buf_size)
+int SerialPort::readSerialPort(const char *buffer, unsigned int buf_size)
 {
     DWORD bytesRead{};
     unsigned int toRead = 0;
@@ -89,9 +89,9 @@ int SerialPort::readSerialPort(char *buffer, unsigned int buf_size)
         }
     }
 
-    memset(buffer, 0, buf_size);
+    memset(&buffer, 0, buf_size);
 
-    if (ReadFile(this->handler, buffer, toRead, &bytesRead, NULL))
+    if (ReadFile(this->handler, &buffer, toRead, &bytesRead, NULL))
     {
         return bytesRead;
     }
@@ -101,7 +101,7 @@ int SerialPort::readSerialPort(char *buffer, unsigned int buf_size)
 
 // Sending provided buffer to serial port;
 // returns true if succeed, false if not
-bool SerialPort::writeSerialPort(char *buffer, unsigned int buf_size)
+bool SerialPort::writeSerialPort(const char *buffer, unsigned int buf_size)
 {
     DWORD bytesSend;
 
