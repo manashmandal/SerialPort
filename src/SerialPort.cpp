@@ -89,9 +89,9 @@ int SerialPort::readSerialPort(const char *buffer, unsigned int buf_size)
         }
     }
 
-    memset(&buffer, 0, buf_size);
+    memset((void*) buffer, 0, buf_size);
 
-    if (ReadFile(this->handler, &buffer, toRead, &bytesRead, NULL))
+    if (ReadFile(this->handler, (void*) buffer, toRead, &bytesRead, NULL))
     {
         return bytesRead;
     }
