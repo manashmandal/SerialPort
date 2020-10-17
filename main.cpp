@@ -11,18 +11,13 @@ char* portName = "\\\\.\\COM20";
 
 char incomingData[MAX_DATA_LENGTH];
 
-//Control signals for turning on and turning off the led
-//Check arduino code
 char ledON[] = "ON\n";
 char ledOFF[] = "OFF\n";
 
-//Arduino SerialPort object
 SerialPort *arduino;
 
-//Blinking Delay
 const unsigned int BLINKING_DELAY = 1000;
 
-//If you want to send data then define "SEND" else comment it out
 #define SEND
 
 void exampleReceiveData(void)
@@ -42,19 +37,17 @@ void exampleWriteData(unsigned int delayTime)
 
 void autoConnect(void)
 {
-    //better than recusion
-    //avoid stack overflows
+  
     while(1) {
-        // ui - searching
+        
         std::cout << "Searching in progress";
-        // wait connection
+       
         while (!arduino->isConnected()) {
             Sleep(100);
             std::cout << ".";
             arduino = new SerialPort(portName);
         }
 
-        //Checking if arduino is connected or not
         if (arduino->isConnected()) {
             std::cout  << std::endl << "Connection established at port " << portName << std::endl;
         }
